@@ -15,7 +15,7 @@ void addbeg(int data)
 }
 void addend(int data)
 {
-	if(head = NULL)
+	if(head == NULL)
 	{	
 		cout<<"The list is empty!!\n";
 	}
@@ -51,7 +51,7 @@ void display()
 	{
 		cout<<"The list contains:";
 		node* ptr = head;
-		while(ptr->next != NULL)
+		while(ptr != NULL)
 		{	
 			cout<<ptr->data<<"\t";			
 			ptr=ptr->next;
@@ -63,32 +63,48 @@ void removedup()
 {
 	node* temp = head;
 	node* ptr;
+	node* preptr;
 	node* temp1;
 	int flag;
-	while(temp->next !=NULL)
+	while(temp != NULL)
 	{	
-		ptr = temp;
+		ptr = temp->next;
+		preptr = temp;
 		flag = 0;
-		while(ptr->next != NULL && flag ==0)
+		while(ptr != NULL && flag ==0)
 		{	
 			if(ptr->data == temp->data)
 			{
-				flag= 1;
-				temp1 = temp;
+				if(ptr->next == NULL)
+				{
+					flag = 1;
+					preptr->next = NULL;
+					delete ptr;
+					
+				}	
+				else
+				{	temp1 = ptr;
+					preptr->next = ptr->next;
+					ptr = ptr->next->next;
+					delete temp1;
+				/*temp1 = temp;
 				temp = temp->next;
 				head = temp;					
-				delete temp1;
+				delete temp1;*/
+				}
 			}
 			else
 			{
+				preptr = ptr;
 				ptr = ptr->next;
 			}	
 		}
-		if(flag = 0)
+		/*if(flag == 0)
 		{	
-			head = temp;
+			
 			temp = temp->next;
-		}
+		}*/
+		temp = temp->next;
 	}
 }
 
@@ -107,8 +123,7 @@ int main()
 			case 2:cout<<"Enter the no:";cin>>data;addbeg(data);break;
 			case 3:cout<<"Enter the no:";cin>>data;addend(data);break;
 			case 4:cout<<"Enter the no to be deleted:";cin>>data;delparti(data);break;
-			case 5:cout<<"The duplicates have been removed.";removedup();break;
+			case 5:cout<<"The duplicates have been removed.\n";removedup();break;
 		}	
 	}
 }
-

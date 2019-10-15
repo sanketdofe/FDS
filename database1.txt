@@ -1,0 +1,16 @@
+5
+student
+21 Rishi
+2 chem 34 phy 56
+student
+22 Mrunal
+3 dld 15 fds 54 de 55
+student
+23 Shashank
+1 coa 69
+student
+24 Rohit
+4 eg 50 evs 77 py 69 eng 38
+student
+25 Akash
+2 de 64 em 72

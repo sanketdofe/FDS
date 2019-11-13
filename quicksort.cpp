@@ -54,17 +54,7 @@ void quicksort(int arr[] ,int beg ,int end)
 	}
 }
 
-/*void display(int arr[])
-{
-	int len=sizeof(arr)/sizeof(int);
-	cout<<len;
-	for(int i=0;i<len;i++)
-	{
-		cout<<arr[i]<<"\t";
-	}
-	cout<<endl;
-}
-*/
+
 int main()
 {
 	int n;
@@ -82,14 +72,13 @@ int main()
 		cout<<arr[i]<<"\t";
 	}
 	cout<<endl;
-	//display(arr);
-	quicksort(arr ,arr[0] ,arr[n-1]);
+	
+	quicksort(arr ,0 ,n-1);
 	cout<<"The array after sorting contains:";
 	for(int i=0;i<n;i++)
 	{
 		cout<<arr[i]<<"\t";
 	}
 	cout<<endl;
-	//display(arr);
 	return 0;
 }
